@@ -8,4 +8,4 @@ git commit -m 'deploy'
 
 git push -f git@github.com:zFitness/todolist-reactive.git master:gh-pages
 
-cd-
+cd -
