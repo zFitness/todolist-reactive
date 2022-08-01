@@ -11,7 +11,7 @@ const TodoFooter: React.FC<ITodoFooterProps> = ({
 }) => {
   var activeTodoWord = Utils.pluralize(count, "item");
   var clearButton = null;
-
+  
   if (completedCount > 0) {
     clearButton = (
       <button className="clear-completed" onClick={onClearCompleted}>

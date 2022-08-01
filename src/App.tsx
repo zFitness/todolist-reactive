@@ -24,9 +24,10 @@ const App: React.FC<{
         return true;
     }
   });
-  const activeTodoCount = shownTodos.filter((todo) => !todo.completed).length;
+  const activeTodoCount = model.todos.filter((todo) => !todo.completed).length;
   const completedCount = model.todos.length - activeTodoCount;
 
+  console.log(activeTodoCount, completedCount)
   const toggle = (todo: ITodo) => {
     model.toggle(todo);
   };

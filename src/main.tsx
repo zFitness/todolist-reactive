@@ -5,7 +5,7 @@ import App from "./App";
 import "./index.css";
 import TodoModel from "./todoModel";
 
-const todoModel = model(new TodoModel("aa"));
+const todoModel = model(new TodoModel("todo"));
 
 ReactDOM.createRoot(document.getElementById("app") as HTMLElement).render(
   <React.StrictMode>
