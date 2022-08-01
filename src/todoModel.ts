@@ -42,8 +42,7 @@ class TodoModel implements ITodoModel {
     todoToSave.title = text;
   }
   public clearCompleted() {
-    this.todos = this.todos.filter(item => item.completed)
-    console.log(isObservable(this.todos))
+    this.todos = this.todos.filter(item => !item.completed)
   }
 }
 

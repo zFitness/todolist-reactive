@@ -1,8 +1,8 @@
 import "./App.css";
 import { observer } from "@formily/reactive-react";
 import { observable } from "@formily/reactive";
-import TodoItem from "./todoitem";
-import { ChangeEvent, useMemo, useRef } from "react";
+import TodoItem from "./todoItem";
+import { ChangeEvent, useEffect, useMemo, useRef } from "react";
 import { ACTIVE_TODOS, ALL_TODOS, COMPLETED_TODOS } from "./constants";
 import { ITodo, ITodoModel } from "./type";
 import TodoFooter from "./footer";
@@ -24,6 +24,8 @@ const App: React.FC<{
         return true;
     }
   });
+  const activeTodoCount = shownTodos.filter((todo) => !todo.completed).length;
+  const completedCount = model.todos.length - activeTodoCount;
 
   const toggle = (todo: ITodo) => {
     model.toggle(todo);
@@ -85,11 +87,8 @@ const App: React.FC<{
   };
 
   const clearCompleted = () => {
-    model.clearCompleted()
-  }
-
-  const activeTodoCount = shownTodos.filter((todo) => !todo.completed).length;
-  const completedCount = model.todos.length - activeTodoCount;
+    model.clearCompleted();
+  };
 
   let main;
   if (model.todos.length) {
@@ -115,10 +114,28 @@ const App: React.FC<{
         count={activeTodoCount}
         completedCount={completedCount}
         nowShowing={nowShowing.value}
-        onClearCompleted={clearCompleted()}
+        onClearCompleted={clearCompleted}
       />
     );
   }
+
+  useEffect(() => {
+    const setNowShowing = () => {
+      console.log(location.hash);
+      if (location.hash.includes("active")) {
+        nowShowing.value = ACTIVE_TODOS;
+      } else if (location.hash.includes("completed")) {
+        nowShowing.value = COMPLETED_TODOS;
+      } else {
+        nowShowing.value = ALL_TODOS;
+      }
+    };
+    window.addEventListener("hashchange", setNowShowing);
+
+    return () => {
+      window.removeEventListener("hashchange", setNowShowing);
+    };
+  }, []);
 
   return (
     <div>
