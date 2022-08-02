@@ -29,8 +29,6 @@ export interface ITodoFooterProps {
 export interface ITodoModel {
   key: any;
   todos: Array<ITodo>;
-  onChanges: Array<any>;
-  subscribe(onChange: any): void;
   inform(): void;
   addTodo(title: string): void;
   toggleAll(checked: boolean): void;

@@ -1,9 +1,8 @@
-import { autorun, observable } from "@formily/reactive";
+import { observable } from "@formily/reactive";
 import { observer } from "@formily/reactive-react";
 import classNames from "classnames";
 import * as React from "react";
 import { useEffect, useMemo, useRef } from "react";
-import { ENTER_KEY, ESCAPE_KEY } from "./constants";
 import { ITodoItemProps } from "./type";
 
 

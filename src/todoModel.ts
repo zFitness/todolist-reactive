@@ -1,20 +1,16 @@
+import { action, define, observable } from "@formily/reactive";
 import { ITodo, ITodoModel } from "./type";
 import { Utils } from "./utils";
 
 class TodoModel implements ITodoModel {
   public key: string;
   public todos: ITodo[];
-  public onChanges: any[];
 
   constructor(key: string) {
     this.key = key;
     this.todos = Utils.store(key);
-    this.onChanges = [];
   }
 
-  public subscribe(onChange: any) {
-    this.onChanges.push(onChange);
-  }
   public inform() {
     Utils.store(this.key, this.todos);
   }

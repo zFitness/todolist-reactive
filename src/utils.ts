@@ -2,7 +2,6 @@
 class Utils {
 
   public static uuid() : string {
-    /*jshint bitwise:false */
     var i, random;
     var uuid = '';
 
