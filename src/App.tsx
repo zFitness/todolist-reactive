@@ -1,4 +1,3 @@
-import "./App.css";
 import { observer } from "@formily/reactive-react";
 import { observable } from "@formily/reactive";
 import TodoItem from "./todoItem";
@@ -27,7 +26,6 @@ const App: React.FC<{
   const activeTodoCount = model.todos.filter((todo) => !todo.completed).length;
   const completedCount = model.todos.length - activeTodoCount;
 
-  console.log(activeTodoCount, completedCount)
   const toggle = (todo: ITodo) => {
     model.toggle(todo);
   };

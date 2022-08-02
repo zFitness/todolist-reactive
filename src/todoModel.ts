@@ -1,4 +1,3 @@
-import { isObservable } from "@formily/reactive";
 import { ITodo, ITodoModel } from "./type";
 import { Utils } from "./utils";
 
