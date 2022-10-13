@@ -1,6 +1,6 @@
 # TodoList-Reactive
 
-使用 vite + pnpm + react + @formily/reactive 开发的 TodoList, 使用响应式开发，让你从 useState 中解放出来。
+使用 vite + pnpm + react + @formily/reactive 开发的 TodoList, 响应式 + react。
 
 >[预览地址](https://zfitness.github.io/todolist-reactive/) 
 
